@@ -7,21 +7,21 @@
 
 <div class="content">
     <div class="cols">
-        <div class="cols__item"><div class="column">1</div></div>
-        <div class="cols__item"><div class="column">2</div></div>
-        <div class="cols__item"><div class="column">3</div></div>
-        <div class="cols__item"><div class="column">4</div></div>
-        <div class="cols__item"><div class="column">5</div></div>
+        <div class="cols__item"><div class="spl-column">1</div></div>
+        <div class="cols__item"><div class="spl-column">2</div></div>
+        <div class="cols__item"><div class="spl-column">3</div></div>
+        <div class="cols__item"><div class="spl-column">4</div></div>
+        <div class="cols__item"><div class="spl-column">5</div></div>
     </div>
 </div>
 
 ```html
 <div class="cols">
-    <div class="cols__item"><div class="column">1</div></div>
-    <div class="cols__item"><div class="column">2</div></div>
-    <div class="cols__item"><div class="column">3</div></div>
-    <div class="cols__item"><div class="column">4</div></div>
-    <div class="cols__item"><div class="column">5</div></div>
+    <div class="cols__item"><div class="spl-column">1</div></div>
+    <div class="cols__item"><div class="spl-column">2</div></div>
+    <div class="cols__item"><div class="spl-column">3</div></div>
+    <div class="cols__item"><div class="spl-column">4</div></div>
+    <div class="cols__item"><div class="spl-column">5</div></div>
 </div>
 ```
 
@@ -35,7 +35,7 @@
 }
 ```
 
-Note: `12 null 6 4 (1 of 5)` - list of span columns for default breakpoints
+Note: `12 null 6 4 (1 of 5)` - list of span spl-columns for default breakpoints
 ```
 (
  xxs: 0px,
@@ -89,21 +89,21 @@ This example equivalent previous:
 
 <div class="content">
     <div class="cols2">
-        <div class="cols2__item"><div class="column">1</div></div>
-        <div class="cols2__item"><div class="column">2</div></div>
-        <div class="cols2__item"><div class="column">3</div></div>
-        <div class="cols2__item"><div class="column">4</div></div>
-        <div class="cols2__item"><div class="column">5</div></div>
+        <div class="cols2__item"><div class="spl-column">1</div></div>
+        <div class="cols2__item"><div class="spl-column">2</div></div>
+        <div class="cols2__item"><div class="spl-column">3</div></div>
+        <div class="cols2__item"><div class="spl-column">4</div></div>
+        <div class="cols2__item"><div class="spl-column">5</div></div>
     </div>
 </div>
 
 ```html
 <div class="cols2">
-    <div class="cols2__item"><div class="column">1</div></div>
-    <div class="cols2__item"><div class="column">2</div></div>
-    <div class="cols2__item"><div class="column">3</div></div>
-    <div class="cols2__item"><div class="column">4</div></div>
-    <div class="cols2__item"><div class="column">5</div></div>
+    <div class="cols2__item"><div class="spl-column">1</div></div>
+    <div class="cols2__item"><div class="spl-column">2</div></div>
+    <div class="cols2__item"><div class="spl-column">3</div></div>
+    <div class="cols2__item"><div class="spl-column">4</div></div>
+    <div class="cols2__item"><div class="spl-column">5</div></div>
 </div>
 ```
 
@@ -115,7 +115,7 @@ This example equivalent previous:
         sm: 640px,
         lg: 1100px
       ),
-      columns: 15,
+      spl-columns: 15,
       gap: 25px
   );
   @include grid-row($grid);
@@ -126,21 +126,21 @@ This example equivalent previous:
 }
 ```
 
-## Fast change column count
+## Fast change spl-column count
 
 <div class="content">
     <div class="cols3">
-        <div class="cols3__item"><div class="column">1</div></div>
-        <div class="cols3__item"><div class="column">2</div></div>
-        <div class="cols3__item"><div class="column">3</div></div>
+        <div class="cols3__item"><div class="spl-column">1</div></div>
+        <div class="cols3__item"><div class="spl-column">2</div></div>
+        <div class="cols3__item"><div class="spl-column">3</div></div>
     </div>
 </div>
 
 ```html
 <div class="cols3">
-    <div class="cols3__item"><div class="column">1</div></div>
-    <div class="cols3__item"><div class="column">2</div></div>
-    <div class="cols3__item"><div class="column">3</div></div>
+    <div class="cols3__item"><div class="spl-column">1</div></div>
+    <div class="cols3__item"><div class="spl-column">2</div></div>
+    <div class="cols3__item"><div class="spl-column">3</div></div>
 </div>
 ```
 
@@ -158,23 +158,23 @@ This example equivalent previous:
 
 <div class="content">
     <div class="cols4">
-        <div class="cols4__item"><div class="column">1</div></div>
-        <div class="cols4__item"><div class="column">2</div></div>
-        <div class="cols4__item"><div class="column">3</div></div>
-        <div class="cols4__item"><div class="column">4</div></div>
-        <div class="cols4__item"><div class="column">5</div></div>
-        <div class="cols4__item"><div class="column">6</div></div>
+        <div class="cols4__item"><div class="spl-column">1</div></div>
+        <div class="cols4__item"><div class="spl-column">2</div></div>
+        <div class="cols4__item"><div class="spl-column">3</div></div>
+        <div class="cols4__item"><div class="spl-column">4</div></div>
+        <div class="cols4__item"><div class="spl-column">5</div></div>
+        <div class="cols4__item"><div class="spl-column">6</div></div>
     </div>
 </div>
 
 ```html
 <div class="cols4">
-    <div class="cols4__item"><div class="column">1</div></div>
-    <div class="cols4__item"><div class="column">2</div></div>
-    <div class="cols4__item"><div class="column">3</div></div>
-    <div class="cols4__item"><div class="column">4</div></div>
-    <div class="cols4__item"><div class="column">5</div></div>
-    <div class="cols4__item"><div class="column">6</div></div>
+    <div class="cols4__item"><div class="spl-column">1</div></div>
+    <div class="cols4__item"><div class="spl-column">2</div></div>
+    <div class="cols4__item"><div class="spl-column">3</div></div>
+    <div class="cols4__item"><div class="spl-column">4</div></div>
+    <div class="cols4__item"><div class="spl-column">5</div></div>
+    <div class="cols4__item"><div class="spl-column">6</div></div>
 </div>
 ```
 
@@ -192,32 +192,32 @@ This example equivalent previous:
 
 Make fixed width container from breakpoint and add padding
 
-<div class="container">
-    <div class="column">.column in .container</div>
+<div class="spl-container">
+    <div class="spl-column">.spl-column in .spl-container</div>
 </div>
 
 ```html
-<div class="container">
-    <div class="column">.column in .container</div>
+<div class="spl-container">
+    <div class="spl-column">.spl-column in .spl-container</div>
 </div>
 ```
 
 ```scss
-.container {
-  @include grid-container(sm);
+.spl-container {
+  @include grid-spl-container(sm);
 }
 ```
 
 ## Get breakpoint width
 
-<div class="column visible-sm">.visible-sm</div>
+<div class="spl-column spl-visible-sm">.spl-visible-sm</div>
 
 ```html
-<div class="column visible-sm">.visible-sm</div>
+<div class="spl-column spl-visible-sm">.spl-visible-sm</div>
 ```
 
 ```scss
-.visible-sm {
+.spl-visible-sm {
   display: none;
 
   @media (min-width: grid-width(sm)) {
@@ -228,14 +228,14 @@ Make fixed width container from breakpoint and add padding
 
 ## Breakpoint content
 
-<div class="column visible-md">.visible-md</div>
+<div class="spl-column spl-visible-md">.spl-visible-md</div>
 
 ```html
-<div class="column visible-md">.visible-md</div>
+<div class="spl-column spl-visible-md">.spl-visible-md</div>
 ```
 
 ```scss
-.visible-md {
+.spl-visible-md {
   display: none;
 
   @include grid-breakpoint(md) {

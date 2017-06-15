@@ -39,3 +39,9 @@ Warning: in current version of **fast-grid** support only global `box-sizing: bo
   }
 }
 ```
+
+## Examples
+
+See grid in action by examples:
+
+https://paulzi.github.io/fast-grid/
