@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300");
+@import "../_fast-grid";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font: 16px/1.5 'Roboto', sans-serif;
+  color: #333;
+}
+
+.content {
+  padding: 30px 0;
+  background-color: #f2f2f2;
+}
+
+.column {
+  padding: 3px 10px;
+  text-align: center;
+  background-color: #39f;
+}
+
+.cols {
+  @include grid-row();
+
+  &__item {
+    @include grid-col(12 null 6 4 (1 of 5));
+  }
+}
+
+.cols2 {
+  $grid: (
+    breakpoints: (
+      xs: 0px,
+      sm: 640px,
+      lg: 1100px
+    ),
+    columns: 15,
+    gap: 25px
+  );
+  @include grid-row($grid);
+
+  &__item {
+    @include grid-col(15 5 3, $grid);
+  }
+}
+
+.cols3 {
+  @include grid-row();
+
+  &__item {
+    @include grid-col((xxs: 3, md: 1) of 3);
+  }
+}
+
+.cols4 {
+  @include grid-row((gap: 5px));
+
+  &__item {
+    @include grid-col(12/12 null 6/12 4/12 3/12 of 1, (gap: 5px));
+  }
+}
+
+.visible-sm {
+  display: none;
+
+  @media (min-width: grid-width(sm)) {
+    display: block;
+  }
+}
+
+.visible-md {
+  display: none;
+
+  @include grid-breakpoint(md) {
+    display: block;
+  }
+}
+
+.container {
+  @include grid-container(sm);
+}

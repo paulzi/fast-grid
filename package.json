@@ -1,0 +1,20 @@
+{
+  "name": "fast-grid",
+  "version": "0.1.0",
+  "description": "Sass grid system",
+  "authors": [
+    {
+      "name": "PaulZi",
+      "email": "pavel.zimakoff@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paulzi/fast-grid"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-sass": "^2.0.0"
+  }
+}
