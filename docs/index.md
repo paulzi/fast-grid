@@ -35,7 +35,7 @@
 }
 ```
 
-Note: `12 null 6 4 (1 of 5)` - list of span spl-columns for default breakpoints
+Note: `12 null 6 4 (1 of 5)` - list of span columns for default breakpoints
 ```
 (
  xxs: 0px,
