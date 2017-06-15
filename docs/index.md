@@ -5,7 +5,7 @@
 
 ## Basic (list) usage
 
-<div class="content">
+<div class="spl-content">
     <div class="cols">
         <div class="cols__item"><div class="spl-column">1</div></div>
         <div class="cols__item"><div class="spl-column">2</div></div>
@@ -87,7 +87,7 @@ This example equivalent previous:
 
 ## Change global and local settings (breakpoints, gap, ...)
 
-<div class="content">
+<div class="spl-content">
     <div class="cols2">
         <div class="cols2__item"><div class="spl-column">1</div></div>
         <div class="cols2__item"><div class="spl-column">2</div></div>
@@ -128,7 +128,7 @@ This example equivalent previous:
 
 ## Fast change spl-column count
 
-<div class="content">
+<div class="spl-content">
     <div class="cols3">
         <div class="cols3__item"><div class="spl-column">1</div></div>
         <div class="cols3__item"><div class="spl-column">2</div></div>
@@ -156,7 +156,7 @@ This example equivalent previous:
 
 ## Fraction variant
 
-<div class="content">
+<div class="spl-content">
     <div class="cols4">
         <div class="cols4__item"><div class="spl-column">1</div></div>
         <div class="cols4__item"><div class="spl-column">2</div></div>
@@ -226,7 +226,7 @@ Make fixed width container from breakpoint and add padding
 }
 ```
 
-## Breakpoint content
+## Breakpoint spl-content
 
 <div class="spl-column spl-visible-md">.spl-visible-md</div>
 
