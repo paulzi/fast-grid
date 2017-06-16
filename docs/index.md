@@ -115,7 +115,7 @@ This example equivalent previous:
         sm: 640px,
         lg: 1100px
       ),
-      spl-columns: 15,
+      columns: 15,
       gap: 25px
   );
   @include grid-row($grid);
@@ -126,7 +126,7 @@ This example equivalent previous:
 }
 ```
 
-## Fast change spl-column count
+## Fast change column count
 
 <div class="spl-content">
     <div class="cols3">
@@ -204,7 +204,7 @@ Make fixed width container from breakpoint and add padding
 
 ```scss
 .spl-container {
-  @include grid-spl-container(sm);
+  @include grid-container(sm);
 }
 ```
 
