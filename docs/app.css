@@ -40,7 +40,8 @@ body {
   margin-right: -25px; }
   .cols2:before, .cols2:after {
     content: ' ';
-    display: table; }
+    display: table;
+    clear: both; }
   .cols2__item {
     float: left;
     padding-left: 25px;
