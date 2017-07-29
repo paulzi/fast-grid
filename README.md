@@ -1,5 +1,7 @@
 # fast-grid
 
+[![NPM version](http://img.shields.io/npm/v/fast-grid.svg?style=flat)](https://www.npmjs.org/package/fast-grid)
+
 Sass grid system designed for speed.
 
 ## Install
