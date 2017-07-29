@@ -1,0 +1,38 @@
+@import "internal";
+
+@mixin grid-row($settings: null) {
+  $settings: if($settings != null, map-merge($grid, $settings), $grid);
+  $gap: map-get($settings, gap);
+  $mode: map-get($settings, mode);
+
+  @if ($mode == float) {
+    &:before, &:after {
+      content: ' ';
+      display: table;
+    }
+  } @else {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  @if type-of($gap) == number {
+    margin-left: -$gap;
+    margin-right: -$gap;
+  } @else {
+    @if (type-of($gap) == list) {
+      $gap: gridListToMap($gap, $settings);
+    }
+    @each $breakpoint, $value in $gap {
+      $minWidth: grid-width($breakpoint, $settings);
+      @if $minWidth > 0 {
+        @media (min-width: $minWidth) {
+          margin-left: -$value;
+          margin-right: -$value;
+        }
+      } @else {
+        margin-left: -$value;
+        margin-right: -$value;
+      }
+    }
+  }
+}

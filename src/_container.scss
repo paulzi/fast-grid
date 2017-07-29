@@ -1,0 +1,50 @@
+@import "internal";
+
+@mixin grid-container($from: null, $to: null, $settings: null) {
+  $settings: if($settings != null, map-merge($grid, $settings), $grid);
+  $gap: map-get($settings, container);
+  $map: map_get($settings, breakpoints);
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+
+  @if type-of($gap) == number {
+    padding-left: $gap;
+    padding-right: $gap;
+  }
+  @if (type-of($gap) == list) {
+    $gap: gridListToMap($gap, $settings);
+  }
+
+  $found: false;
+  $break: false;
+  @each $breakpoint, $minWidth in $map {
+    @if $breakpoint == $from {
+      $found: true;
+    }
+    @if $found == true and $break == false or (type-of($from) == list and index($from, $breakpoint) != null) {
+      @if $minWidth > 0 {
+        @media (min-width: $minWidth) {
+          max-width: $minWidth;
+        }
+      } @else {
+        max-width: $minWidth;
+      }
+    }
+    @if type-of($gap) == map {
+      $gapLocal: map-get($gap, $breakpoint);
+      @if $minWidth > 0 {
+        @media (min-width: $minWidth) {
+          padding-left: $gapLocal;
+          padding-right: $gapLocal;
+        }
+      } @else {
+        padding-left: $gapLocal;
+        padding-right: $gapLocal;
+      }
+    }
+    @if $breakpoint == $to {
+      $break: true;
+    }
+  }
+}

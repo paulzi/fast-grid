@@ -1,0 +1,58 @@
+@import "internal";
+
+@mixin grid-col($spans, $settings: null) {
+  $settings: if($settings != null, map-merge($grid, $settings), $grid);
+  $columns: map-get($settings, columns);
+  $gap: map-get($settings, gap);
+  $box-sizing: map-get($settings, box-sizing);
+  $mode: map-get($settings, mode);
+  $map: map-get($settings, breakpoints);
+  $spans: normalizeSpans($spans, $settings);
+
+  @if ($mode == float) {
+    float: left;
+  }
+
+  @if type-of($gap) == number {
+    padding-left: $gap;
+    padding-right: $gap;
+  } @else {
+    @if (type-of($gap) == list) {
+      $gap: gridListToMap($gap, $settings);
+    }
+  }
+
+  @mixin grid-col-internal($span, $columns, $gapLocal) {
+    @if $span != null {
+      $gapAlways: if($gapLocal == null, $gap, $gapLocal);
+      width: 100% * $span / $columns - if($box-sizing == content-box and unit($gapAlways) == '%', $gapAlways * 2, 0);
+      @if $box-sizing == content-box and unit($gapAlways) != '%' {
+        box-sizing: border-box;
+      }
+    }
+    padding-left: $gapLocal;
+    padding-right: $gapLocal;
+  }
+
+  @each $breakpoint, $minWidth in $map {
+    $span: map-get($spans, $breakpoint);
+    @if type-of($span) == list and nth($span, 2) == 'of' {
+      $columnsLocal: nth($span, 3);
+      $span: nth($span, 1);
+    }
+    $columnsLocal: $columns !default;
+
+    $gapLocal: null;
+    @if type-of($gap) == map {
+      $gapLocal: map-get($gap, $breakpoint);
+    }
+
+    @if $minWidth > 0 {
+      @media (min-width: $minWidth) {
+        @include grid-col-internal($span, $columnsLocal, $gapLocal);
+      }
+    } @else {
+      @include grid-col-internal($span, $columnsLocal, $gapLocal);
+    }
+  }
+}

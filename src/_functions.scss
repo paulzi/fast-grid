@@ -1,0 +1,12 @@
+// get width for breakpoint
+@function grid-width($breakpoint, $settings: null) {
+  $settings: $grid !default;
+  @return map-get(map-get($settings, breakpoints), $breakpoint);
+}
+
+// apply breakpoint rules
+@mixin grid-breakpoint($breakpoint, $settings: null) {
+  @media (min-width: grid-width($breakpoint, $settings)) {
+    @content
+  }
+}

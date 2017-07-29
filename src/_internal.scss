@@ -1,0 +1,33 @@
+// convert list to map
+@function gridListToMap($list, $settings) {
+  $result: ();
+  $i: 0;
+  $breakpoints: map-get($settings, breakpoints);
+  @each $breakpoint, $value in $breakpoints {
+    $i: $i + 1;
+    $value: if(length($list) >= $i, nth($list, $i), null);
+    @if $value != null {
+      $result: map-merge($result, ($breakpoint: $value));
+    }
+  }
+  @return $result;
+}
+
+@function normalizeSpans($spans, $settings) {
+  @if type-of($spans) != map {
+    $len: length($spans);
+    @if $len >= 3 and nth($spans, $len - 1) == 'of' {
+      $columns: nth($spans, $len);
+      @if ($len > 3) {
+        $spans: set-nth($spans, $len, null);
+        $spans: set-nth($spans, $len - 1, null);
+        $spans: gridListToMap($spans, $settings);
+      } @else {
+        $spans: nth($spans, 1);
+      }
+    } @else {
+      $spans: gridListToMap($spans, $settings);
+    }
+  }
+  @return $spans;
+}

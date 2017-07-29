@@ -1,0 +1,36 @@
+@import "internal";
+
+@mixin grid-prop($prop, $spans, $settings: null) {
+  $settings: if($settings != null, map-merge($grid, $settings), $grid);
+  $columns: map-get($settings, columns);
+  $map: map-get($settings, breakpoints);
+  $spans: normalizeSpans($spans, $settings);
+
+  @each $breakpoint, $minWidth in $map {
+    $span: map-get($spans, $breakpoint);
+    @if type-of($span) == list and nth($span, 2) == 'of' {
+      $columnsLocal: nth($span, 3);
+      $span: nth($span, 1);
+    }
+    $columnsLocal: $columns !default;
+
+    @if $span != null {
+      @if $minWidth > 0 {
+        @media (min-width: $minWidth) {
+          #{$prop}: 100% * $span / $columnsLocal;
+        }
+      } @else {
+        #{$prop}: 100% * $span / $columnsLocal;
+      }
+    }
+  }
+}
+
+@mixin grid-offset($spans, $settings: null) {
+  @include grid-prop(margin-left, $spans, $settings);
+}
+
+@mixin grid-move($spans, $settings: null) {
+  position: relative;
+  @include grid-prop(left, $spans, $settings);
+}
