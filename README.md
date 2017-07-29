@@ -200,15 +200,15 @@ Apply rules for named breakpoint.
 
 ### `grid-prop($prop, $spans[, $settings])`
 
-Apply calculated span value (see [grid-col](#grid-col) `$spans` param) for `$prop`.
+Apply calculated span value (see [grid-col](#spans-listmap) `$spans` param) for `$prop`.
 
 ### `grid-offset($spans[, $settings])`
 
-Move column by the specified number of columns by `$spans` with content stream (see [grid-col](#grid-col) `$spans` param).
+Move column by the specified number of columns by `$spans` with content stream (see [grid-col](#spans-listmap) `$spans` param).
 
 ### `grid-move($spans[, $settings])`
 
-Move column by the specified number of columns by `$spans` without changing content stream (see [grid-col](#grid-col) `$spans` param).
+Move column by the specified number of columns by `$spans` without changing content stream (see [grid-col](#spans-listmap) `$spans` param).
 
 ## Browser support
 

@@ -1,5 +1,5 @@
 // convert list to map
-@function gridListToMap($list, $settings) {
+@function fastGridListToMap($list, $settings) {
   $result: ();
   $i: 0;
   $breakpoints: map-get($settings, breakpoints);
@@ -13,7 +13,8 @@
   @return $result;
 }
 
-@function normalizeSpans($spans, $settings) {
+@function fastGridNormalizeSpans($spans, $settings) {
+  $columns: map-get($settings, columns);
   @if type-of($spans) != map {
     $len: length($spans);
     @if $len >= 3 and nth($spans, $len - 1) == 'of' {
@@ -21,13 +22,13 @@
       @if ($len > 3) {
         $spans: set-nth($spans, $len, null);
         $spans: set-nth($spans, $len - 1, null);
-        $spans: gridListToMap($spans, $settings);
+        $spans: fastGridListToMap($spans, $settings);
       } @else {
         $spans: nth($spans, 1);
       }
     } @else {
-      $spans: gridListToMap($spans, $settings);
+      $spans: fastGridListToMap($spans, $settings);
     }
   }
-  @return $spans;
+  @return $spans, $columns;
 }

@@ -2,9 +2,10 @@
 
 @mixin grid-prop($prop, $spans, $settings: null) {
   $settings: if($settings != null, map-merge($grid, $settings), $grid);
-  $columns: map-get($settings, columns);
   $map: map-get($settings, breakpoints);
-  $spans: normalizeSpans($spans, $settings);
+  $spans: fastGridNormalizeSpans($spans, $settings);
+  $columns: nth($spans, 2);
+  $spans: nth($spans, 1);
 
   @each $breakpoint, $minWidth in $map {
     $span: map-get($spans, $breakpoint);

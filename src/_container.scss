@@ -13,7 +13,7 @@
     padding-right: $gap;
   }
   @if (type-of($gap) == list) {
-    $gap: gridListToMap($gap, $settings);
+    $gap: fastGridListToMap($gap, $settings);
   }
 
   $found: false;

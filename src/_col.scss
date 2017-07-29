@@ -2,12 +2,13 @@
 
 @mixin grid-col($spans, $settings: null) {
   $settings: if($settings != null, map-merge($grid, $settings), $grid);
-  $columns: map-get($settings, columns);
   $gap: map-get($settings, gap);
   $box-sizing: map-get($settings, box-sizing);
   $mode: map-get($settings, mode);
   $map: map-get($settings, breakpoints);
-  $spans: normalizeSpans($spans, $settings);
+  $spans: fastGridNormalizeSpans($spans, $settings);
+  $columns: nth($spans, 2);
+  $spans: nth($spans, 1);
 
   @if ($mode == float) {
     float: left;
@@ -18,7 +19,7 @@
     padding-right: $gap;
   } @else {
     @if (type-of($gap) == list) {
-      $gap: gridListToMap($gap, $settings);
+      $gap: fastGridListToMap($gap, $settings);
     }
   }
 

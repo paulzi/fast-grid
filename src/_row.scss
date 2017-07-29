@@ -20,7 +20,7 @@
     margin-right: -$gap;
   } @else {
     @if (type-of($gap) == list) {
-      $gap: gridListToMap($gap, $settings);
+      $gap: fastGridListToMap($gap, $settings);
     }
     @each $breakpoint, $value in $gap {
       $minWidth: grid-width($breakpoint, $settings);
