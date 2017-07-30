@@ -6,6 +6,8 @@ Sass grid system designed for speed.
 
 ## Install
 
+Install sass in your preferred way, then install fast-grid:
+
 ```sh
 npm install fast-grid --save-dev
 ```
