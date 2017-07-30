@@ -1,5 +1,17 @@
 @import "internal";
 
+@mixin grid-col-internal($box-sizing, $span, $columns, $gap, $gapLocal) {
+  @if $span != null {
+    $gapAlways: if($gapLocal == null, $gap, $gapLocal);
+    width: 100% * $span / $columns - if($box-sizing == content-box and unit($gapAlways) == '%', $gapAlways * 2, 0);
+    @if $box-sizing == content-box and unit($gapAlways) != '%' {
+      box-sizing: border-box;
+    }
+  }
+  padding-left: $gapLocal;
+  padding-right: $gapLocal;
+}
+
 @mixin grid-col($spans, $settings: null) {
   $settings: if($settings != null, map-merge($grid, $settings), $grid);
   $gap: map-get($settings, gap);
@@ -23,18 +35,6 @@
     }
   }
 
-  @mixin grid-col-internal($span, $columns, $gapLocal) {
-    @if $span != null {
-      $gapAlways: if($gapLocal == null, $gap, $gapLocal);
-      width: 100% * $span / $columns - if($box-sizing == content-box and unit($gapAlways) == '%', $gapAlways * 2, 0);
-      @if $box-sizing == content-box and unit($gapAlways) != '%' {
-        box-sizing: border-box;
-      }
-    }
-    padding-left: $gapLocal;
-    padding-right: $gapLocal;
-  }
-
   @each $breakpoint, $minWidth in $map {
     $span: map-get($spans, $breakpoint);
     @if type-of($span) == list and nth($span, 2) == 'of' {
@@ -50,10 +50,10 @@
 
     @if $minWidth > 0 {
       @media (min-width: $minWidth) {
-        @include grid-col-internal($span, $columnsLocal, $gapLocal);
+        @include grid-col-internal($box-sizing, $span, $columnsLocal, $gap, $gapLocal);
       }
     } @else {
-      @include grid-col-internal($span, $columnsLocal, $gapLocal);
+      @include grid-col-internal($box-sizing, $span, $columnsLocal, $gap, $gapLocal);
     }
   }
 }

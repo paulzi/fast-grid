@@ -5,8 +5,6 @@
 
 ## Basic (list) usage
 
-<iframe height='265' scrolling='no' title='fast-grid - basic demo' src='//codepen.io/PaulZi/embed/EvPbWK/?height=265&theme-id=0&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/PaulZi/pen/EvPbWK/'>fast-grid - basic demo</a> by PaulZi (<a href='https://codepen.io/PaulZi'>@PaulZi</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
-
 <div class="spl-content">
     <div class="cols">
         <div class="cols__item"><div class="spl-column">1</div></div>
