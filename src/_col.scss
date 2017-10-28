@@ -42,6 +42,7 @@
 
   @each $breakpoint, $minWidth in $map {
     $span: map-get($spans, $breakpoint);
+    $columnsLocal: null;
     @if type-of($span) == list and nth($span, 2) == 'of' {
       $columnsLocal: nth($span, 3);
       $span: nth($span, 1);
