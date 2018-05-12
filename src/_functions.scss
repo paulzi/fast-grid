@@ -4,9 +4,52 @@
   @return map-get(map-get($settings, breakpoints), $breakpoint);
 }
 
+@function grid-width-to($breakpoint, $settings: null) {
+  $settings: $grid !default;
+  $breakpoints: map-get($settings, breakpoints);
+  $founded: false;
+  @each $name, $minWidth in $breakpoints {
+    @if $founded == true {
+      @return $minWidth - 1;
+    }
+    @if $name == $breakpoint {
+      $founded: true;
+    }
+  }
+  @return null;
+}
+
 // apply breakpoint rules
 @mixin grid-breakpoint($breakpoint, $settings: null) {
-  @media (min-width: grid-width($breakpoint, $settings)) {
-    @content
+  $from: $breakpoint;
+  $fromWidth: null;
+  $toWidth: null;
+  @if type-of($breakpoint) == list {
+    $from: nth($breakpoint, 1);
+    $to: nth($breakpoint, 2);
+    $toWidth: grid-width-to($to, $settings);
+  }
+  @if ($from != null) {
+    $fromWidth: grid-width($from, $settings);
+  }
+
+  @if $toWidth != null {
+    @if $fromWidth != null {
+      @media (min-width: $fromWidth) and (max-width: $toWidth) {
+        @content
+      }
+    } @else {
+      @media (max-width: $toWidth) {
+        @content
+      }
+    }
+  } @else {
+    @if $fromWidth != null {
+      @media (min-width: $fromWidth) {
+        @content
+      }
+    } @else {
+      @content
+    }
   }
 }

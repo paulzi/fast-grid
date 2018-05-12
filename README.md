@@ -385,6 +385,30 @@ Apply rules for named breakpoint:
 }
 ```
 
+`$breakpoint` can be map `from to`:
+
+```scss
+.visible-xs-sm-only {
+  display: none;
+
+  @include grid-breakpoint(xs sm) {
+    display: block;
+  }
+}
+```
+
+You can skip from with `null`:
+
+```scss
+.visible-xs-only {
+  display: none;
+
+  @include grid-breakpoint(null xs) {
+    display: block;
+  }
+}
+```
+
 ## Browser support
 
 In flex mode - [all browsers support flexible box layout](http://caniuse.com/#feat=flexbox):
