@@ -274,7 +274,7 @@ Apply column mixin. It enable column behavior.
 #### `$spans` *(list|map)*
 
 If `$spans` is a list, it lists the values for the each breakpoints, sorted from a smaller to a larger.
-A list can contain fewer breakpoints. You can also skip values by `null`:
+A list can contain fewer breakpoints. You can set `auto` for `width: auto` in this breakpoint. You can also skip values by `null`:
 
 ```scss
 .col {

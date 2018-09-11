@@ -1,7 +1,9 @@
 @import "internal";
 
 @mixin _grid-col-internal($box-sizing, $span, $spanCur, $columns, $gap, $gapLocal) {
-  @if $span != null or ($box-sizing == content-box and unit($gap) != '%') {
+  @if $span == 'auto' {
+    width: auto;
+  } @else if $span != null or ($box-sizing == content-box and unit($gap) != '%') {
     width: 100% * $spanCur / $columns - if($box-sizing == content-box and unit($gap) == '%', $gap * 2, 0);
     @if $box-sizing == content-box and unit($gap) != '%' {
       box-sizing: border-box;
